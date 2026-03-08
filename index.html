@@ -1,0 +1,432 @@
+
+	<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>労働組合 説明会 招待状</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #e8a0b0;
+      --green-light: #f2c4cf;
+      --green-pale: #fef5f7;
+      --yellow: #fde8ec;
+      --yellow-light: #fff9fa;
+      --text: #4a2d35;
+      --text-soft: #8a6470;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #fef7f8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(232, 160, 176, 0.2);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ヘッダー */
+    .header {
+      background: var(--green);
+      padding: 48px 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 30px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .tag {
+      display: inline-block;
+      background: #fde8b8;
+      color: #7a5a30;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: #6b2a3e;
+      line-height: 1.3;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 span {
+      color: #c0506a;
+    }
+
+    .header p.sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* イラスト帯 */
+    .icon-strip {
+      background: var(--green-pale);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-strip .emoji-row {
+      display: flex;
+      gap: 14px;
+      font-size: 24px;
+    }
+
+    .icon-strip p {
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+      margin-left: auto;
+    }
+
+    /* 本文 */
+    .body {
+      padding: 20px 48px;
+    }
+
+    .greeting {
+      font-size: 15.5px;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 32px;
+      border-left: 4px solid var(--green-light);
+      padding-left: 18px;
+    }
+
+    /* 組合紹介 */
+    .union-intro {
+      background: var(--green-pale);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+
+    .union-intro h2 {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .union-intro p {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.85;
+    }
+
+    /* 説明会内容 */
+    .agenda {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .agenda-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .agenda-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .agenda-list li .num {
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* 日時・場所 */
+    .info-box {
+      background: var(--yellow-light);
+      border: 2px solid #f2c4cf;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .info-row:last-child { margin-bottom: 0; }
+
+    .info-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      background: white;
+      border: 1.5px solid var(--green-light);
+      border-radius: 6px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .info-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      padding-top: 2px;
+    }
+
+    .info-sub {
+      font-size: 13px;
+      font-weight: 500;
+      color: #666666;
+      padding-top: 2px;
+    }
+
+    /* フッター */
+    .footer {
+      background: var(--green);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer p {
+      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer p strong {
+      color: white;
+      font-weight: 700;
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .footer-badge {
+      background: #fde8b8;
+      color: #7a5a30;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 100px;
+      white-space: nowrap;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+.kakko-03 {
+	padding: 1rem 1.4rem;
+	position: relative;
+//	text-align: center;
+	box-sizing: border-box;
+}
+.kakko-03::before,
+.kakko-03::after {
+	display: block;
+	position: absolute;
+	top: 50%;
+	line-height: 0;
+	box-sizing: border-box;
+	font-size: 4rem;
+	font-family: 'Zen Kaku Gothic New';
+	color: #a9a9a9; /* 括弧の色 */
+}
+.kakko-03::before {
+	content: '('; /* 開き括弧の種類*/
+	left: 0;
+}
+.kakko-03::after {
+	content: ')'; /* 閉じ括弧の種類*/
+	right: 0;
+}
+.kakko-03 p{
+	margin: 0;
+}
+
+.kakko-03auto {
+	padding: 0.5rem 0.7rem;
+	position: relative;
+	box-sizing: border-box;
+}
+.kakko-03auto::before,
+.kakko-03auto::after {
+	content: '';
+	width: 20px;
+	height: 100%;
+	position: absolute;
+	top: 0;  
+	box-sizing: border-box;
+	border-radius: 50%;
+//	border-top: 4px solid #a9a9a9;
+//	border-bottom: 4px solid #a9a9a9;
+}
+.kakko-03auto::before {
+	border-left: solid 3px #a9a9a9;
+//	border-left: solid 4px #a9a9a9;
+	left: 0;
+//	border-radius: 8px 0 0 8px; /* 左上 | 右上 | 右下 | 左下 */
+}
+.kakko-03auto::after {
+	border-right: solid 3px #a9a9a9;
+//	border-right: solid 4px #a9a9a9;
+	right: 0;
+//	border-radius: 0 8px 8px 0; /* 左上 | 右上 | 右下 | 左下 */
+}
+.kakko-03auto p{
+	margin: 0;
+}
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    @media (max-width: 520px) {
+      .header, .body, .icon-strip { padding-left: 24px; padding-right: 24px; }
+      .header h1 { font-size: 24px; }
+      .footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="tag">📣 新入職員の皆さんへ</div>
+    <h1>労働組合<span>説明会</span>へ<br>ようこそ！</h1>
+  <!--  <p class="sub">一緒に職場をもっとよくしていきましょう</p>-->
+  </div>
+
+  <!-- アイコン帯 -->
+  <div class="icon-strip">
+    <div class="emoji-row">
+
+    </div>
+    <p>気軽にご参加ください！</p>
+  </div>
+
+  <!-- 本文 -->
+  <div class="body">
+
+    <p class="greeting">
+      ご入職おめでとうございます。<br>
+      この度、新入職員の皆さんに向けて、労働組合についての説明会を開催します。「組合って何だろう？」という方も、ぜひお気軽にご参加ください。堅い説明の場というよりも、「こういうものがあるんだ」くらいの気持ちで気軽に聞いていただければ嬉しいです。皆さんのご参加をお待ちしております😊
+    </p>
+
+    <!-- 組合紹介 -->
+    <div class="union-intro">
+      <h2>🌿 私たちの労働組合について🌿</h2>
+      <p>
+        私たちの組合は、職員一人ひとりが安心して働き続けられるよう、労働環境の改善や福利厚生の充実に取り組んでいます。仕事のことで困ったとき、ちょっと相談したいときに気軽に頼れる窓口として、ぜひ存在を覚えておいてください🌸
+      </p>
+    </div>
+
+    <!-- 日時・場所 -->
+    <div class="info-box">
+      <div class="info-row">
+        <span class="info-label">📅 日時</span>
+        <span class="info-value">2026年 4月 3日　午後17時15分〜<br><div class="kakko-03"><span class="info-sub">　参加する人はタイムカードの打刻は不要です🍀<br>　オリエンテーションが終わったらそのまま参加してください）</span></span></div>
+	
+      </div>
+      <div class="info-row">
+        <span class="info-label">📍 場所</span>
+        <span class="info-value">第1会議室（新人オリエンテーションと同じ会場です）</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">🕐 所要時間</span>
+        <span class="info-value">約30分（途中退席も可能です）</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <p>
+    <strong>お問い合わせ</strong>
+    労働組合事務局　担当<br>
+    📸 Instagram：<a href="https://www.instagram.com/zenirou_hyoutyuu?igsh=azlmdDh4czMxbmk2" style="color:#fde8b8;">@zenirou_hyoutyuu</a><br>
+    🐦 X（旧Twitter）：<a href="https://x.com/アカウント名" style="color:#fde8b8;">@アカウント名</a>
+  </p>
+  <div class="footer-badge">ご参加お待ちしています！</div>
+</div>
